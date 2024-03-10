@@ -4,12 +4,14 @@
     <div class="row">
         <div class="col">
             <div class="card">
-                <div class="card-body">
+                <div>
                     <h1 class="text-center text-primary">
                         Welcome!
                     </h1>
                     <br>
-                    La welcome page è una pagina pubblica (NON protetta)
+                    <h5 class="text-center">
+                        La welcome page è una pagina pubblica (NON protetta)
+                    </h5>
                 </div>
             </div>
         </div>

@@ -5,14 +5,13 @@
 @section('main-content')
     <div class="row">
         <div class="col">
-            <div class="card">
-                <div class="card-body">
-                    <h1 class="text-center text-success">
-                        Sei loggato!
-                    </h1>
-                    <br>
+            <div class="mt-4">
+                <h1 class="text-center text-success">
+                    Sei loggato!
+                </h1>
+                <h5 class="text-center">
                     La dashboard è una pagina privata (protetta dal middleware)
-                </div>
+                </h5>
             </div>
         </div>
     </div>
