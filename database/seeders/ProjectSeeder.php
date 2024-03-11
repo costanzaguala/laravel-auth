@@ -28,7 +28,7 @@ class ProjectSeeder extends Seeder
                 'name' => $name,
                 'description' => fake()->paragraph(),
                 'technologies'=> fake()->word(),
-                'creation-date'=>Carbon::now(),
+                'creation_date'=>Carbon::now(),
             ]);
         }
     }

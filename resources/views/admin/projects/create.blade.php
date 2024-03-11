@@ -7,7 +7,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="text-center text-success">
+                    <h1 class="text-center">
                         Add project
                     </h1>
                     <br>
@@ -41,9 +41,9 @@
                             @enderror
                          </div>
                         <div class="mb-3">
-                           <label for="creation-date" class="form-label">Date of project creation<span class="text-danger">*</span></label>
-                           <input type="date" class="form-control" id="creation-date" name="creation-date"  required value="{{ old('creation-date') }}">
-                           @error('creation-date')
+                           <label for="creation_date" class="form-label">Date of project creation<span class="text-danger">*</span></label>
+                           <input type="date" class="form-control" id="creation_date" name="creation_date"  required value="{{ old('creation_date') }}">
+                           @error('creation_date')
                                 <div class="alert alert-danger">
                                     {{ $message }}
                                 </div>

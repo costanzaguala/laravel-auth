@@ -41,21 +41,34 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {   
-        $projectData = $request->validated();
-        $slug = Str::slug($projectData['name']);
-        $projectData['slug'] = $slug;
-        $project = Project::create($projectData);
-        return redirect()->route('admin.projects.show', ['project' => $project->slug]);
-    }
+    
+        $projectData = $request->validate(
+            
+            [
+                'name' => 'required|max:255',
+                'description' => 'nullable|max:5000',
+                'technologies' => 'nullable|string|max:255',
+                'creation_date' => 'required|date',
+            ]
+            
+        );
 
+        $slug = Str::slug($projectData['name']);
+        $projectData['slug']=$slug;
+        $project = Project::create($projectData);
+
+        return redirect()->route('admin.projects.index');
+    
+    }
     /**
      * Display the specified resource.
      */
     public function show(string $slug)
     {
         $project = Project::where('slug', $slug)->firstOrFail();
-
         return view('admin.projects.show', compact('project'));
+
+
     }
 
     /**

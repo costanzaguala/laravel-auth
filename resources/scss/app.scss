@@ -1,3 +1,44 @@
 @import "~bootstrap/scss/bootstrap";
 
+$primary: #ffffff; 
+$primary-hover: darken($primary, 30%); 
 
+
+
+
+header {
+    height: 100vh;
+    width: 200px;
+  
+    a {
+      color: $primary;
+      transition: color 0.3s ease;
+  
+      &:hover {
+        color: $primary-hover;
+        text-decoration: none;
+      }
+    }
+  }
+
+  #login-form {
+    padding: 20px;
+    border-radius: 12px;
+    margin: 4px 2px;
+  }
+
+
+  .form-control:focus {
+    border-color: $black;
+    box-shadow: none; 
+
+  }
+
+  #login-section {
+    height: 100vh;
+    width: 100%;
+  }
+
+  main {
+    width: 100%;
+  }

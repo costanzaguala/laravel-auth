@@ -6,8 +6,8 @@
     <div class="row">
         <div class="col">
             <div class="mt-4">
-                <h1 class="text-center text-success">
-                    Sei loggato!
+                <h1 class="text-center">
+                    You are logged in
                 </h1>
                 <h5 class="text-center">
                     La dashboard è una pagina privata (protetta dal middleware)

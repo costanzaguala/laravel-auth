@@ -5,19 +5,26 @@
         @csrf
 
         <!-- Email Address -->
-        <div>
+        <div class="mt-4">
             <label for="email">
                 Email
             </label>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" class="form-control">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
 
         <!-- Password -->
         <div class="mt-4">
-            <label for="password">
+            <label for="password" class="form-label">
                 Password
             </label>
-            <input type="password" id="password" name="password">
+            <input type="password" class="form-control" id="password" name="password">
+
+            @if (Route::has('password.request'))
+            <a href="{{ route('password.request') }}">
+                {{ __('Forgot your password?') }}
+            </a>
+        @endif
         </div>
 
         <!-- Remember Me -->
@@ -28,14 +35,8 @@
             </label>
         </div>
 
-        <div class="mt-4">
-            @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <button type="submit">
+        <div class="mt-4 d-grid">
+            <button type="submit" class="btn btn-outline-dark">
                 Log in
             </button>
         </div>

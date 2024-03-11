@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('page-title', 'Progetti-realizzati')
+@section('page-title', 'Projects')
 
 @section('main-content')
 {{-- importazione carbon --}}
@@ -12,7 +12,7 @@
         <div class="col">
             <div class="card">
                 <div class="card-body">
-                    <h1 class="text-center text-success">
+                    <h1 class="text-center">
                         Projects created
                     </h1>
                     <hr>
@@ -30,25 +30,29 @@
                             <tr>
                                 <th scope="row">{{ $project->name }}</th>
                                 <td>{{ $project->technologies }}</td>
-                                <td>{{ Carbon::createFromFormat('Y-m-d', $project->start_date)->format('d-m-Y')}}</td>
                                 <td>
-                                    <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}" class="btn btn-xs btn-bg-dark me-2">
-                                        View
-                                    </a>
+                                    {{ Carbon::createFromFormat('Y-m-d', $project->creation_date)->format('d-m-Y') }}
                                 </td>
-                                <td>
-                                    <a href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}" class="btn btn-bg-dark me-2">
-                                        Edit
-                                    </a>
-                                </td>
-                                <td>
-                                    <form onsubmit="return confirm('Sei sicuro di voler eliminare questa voce?');"  action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                            <button type="submit" class="btn btn-danger">
-                                                Delete
-                                            </button>
-                                    </form>
+                                <td class="d-flex justify-content-center">
+                                    <ul>
+                                        <a href="{{ route('admin.projects.show', ['project' => $project->slug]) }}" class="btn btn-xs btn-primary me-2">
+                                            View
+                                        </a>
+                                    </ul>
+                                    <ul>
+                                        <a href="{{ route('admin.projects.edit', ['project' => $project->slug]) }}" class="btn btn-xs btn-warning me-2">
+                                            Edit
+                                        </a>
+                                    </ul>
+                                    <ul>
+                                        <form onsubmit="return confirm('Sei sicuro di voler eliminare questa voce?');"  action="{{ route('admin.projects.destroy', ['project' => $project->id]) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">
+                                                    Delete
+                                                </button>
+                                        </form>
+                                    </ul>
                                 </td>
                             </tr>
                             @endforeach

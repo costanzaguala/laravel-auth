@@ -10,8 +10,55 @@
         <!-- Scripts -->
         @vite('resources/js/app.js')
     </head>
+
     <body>
-        <header>
+        <div class="d-flex">
+            <header class="bg-primary p-5">
+                <section class="list-group">
+                    <ul class="list-unstyled">
+                        @auth
+                        <li class="mb-3">
+                            <a class="text-decoration-none" href="/">Dashboard</a>
+                        </li>
+                        @else
+                        <li class="mb-3">
+                            <a class="text-decoration-none" href="{{ route('login') }}">Login</a>
+                        </li>
+                        <li class="mb-3">
+                            <a class="text-decoration-none" href="{{ route('register') }}">Register</a>
+                        </li>
+                        @endauth
+                    </ul>
+        
+                    @auth
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+        
+                        <button type="submit" class="btn btn-outline-light">
+                            Log Out
+                        </button>
+                    </form>
+                    @endauth
+                </section>
+            </header>
+    
+            <main id="login-section" class="bg-dark flex-column d-flex justify-content-center align-items-center">    
+                <h2 class="text-white mb-4"> 
+                    Welcome!
+                </h2>
+                <div class="container d-flex justify-content-center">
+                    <div class="col-6">
+                        <div id="login-form" class="p-5 bg-light d-flex justify-content-center">
+                            @yield('main-content')
+                        </div>
+                    </div>
+                </div>
+            </main> 
+        </div>       
+    </body>
+
+
+    {{-- <header>
             <nav class="navbar navbar-expand-lg">
                 <div class="container">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,12 +92,7 @@
                     </div>
                 </div>
             </nav>
-        </header>
+        </header> --}}
 
-        <main class="py-4">
-            <div class="container">
-                @yield('main-content')
-            </div>
-        </main>
-    </body>
+
 </html>
